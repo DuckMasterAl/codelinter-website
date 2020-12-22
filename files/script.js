@@ -11,6 +11,7 @@ function getCookie(name) {// Gets a cookie :D
 }
 
 function makestate() {// Used on main oauth page
+  jsLoad();
   const urlParams = new URLSearchParams(window.location.search);
   const token_cookie = getCookie('token');
   const query = urlParams.get("code")
@@ -54,6 +55,7 @@ function makestate() {// Used on main oauth page
 }
 
 function newToken() {// Gets a new code
+  jsLoad();
   var text = "";
   var possible =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -70,6 +72,7 @@ function newToken() {// Gets a new code
 }
 
 function getToken() {// Gets the code from your cookies!
+  jsLoad();
   var token = getCookie('token')
   if (token == null) {
     document.location.replace("error.html?error=no_token");
@@ -78,6 +81,7 @@ function getToken() {// Gets the code from your cookies!
 }
 
 function getError() {// Get the error query | Used on oauth error page
+  jsLoad();
   var urlParams = new URLSearchParams(window.location.search);
   var query = urlParams.get("error");
   var html = document.getElementById('error_msg')
