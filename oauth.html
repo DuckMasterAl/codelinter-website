@@ -1,10 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="files/script.js"></script>
   <title>Getting Token | Code Linter</title>
 </head>
 <body style="background-color: #2c2f33;" onload="makestate()">
+  <script>
+  function makestate() {
+    document.body.style.visibility='visible';
+    const urlParams = new URLSearchParams(window.location.search);
+    const token_cookie = getCookie('token');
+    const query = urlParams.get("code")
+    const query2 = urlParams.get("error");
+    if (query2 != null) {
+      document.location.replace("error.html?error=" + query2);
+    } else if (query == null && token_cookie == null) {
+      var text = "";
+      var possible =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      for (var i = 0; i < 40; i++)
+        text += possible.charAt(
+          Math.floor(Math.random() * possible.length)
+        );
+      // This gets the time of the state cookie (1 day)
+      var date = new Date();
+      date.setTime(date.getTime() + 1 * 24 * 60 * 60 * 1000);// 1 day
+      var expires = "; expires=" + date.toUTCString();
+      document.cookie = "state=" + (text || "") + expires + "; path=/";
+      document.location.replace(
+        "https://github.com/login/oauth/authorize?client_id=eb8d5d1d67f9e842e89b&scope=repo&state=" +
+        text);
+    } else {
+      const state_param = urlParams.get("state");
+      const state_cookie = getCookie("state");
+      if (state_param != state_cookie && state_param != undefined && query != undefined || state_param == undefined && query != undefined) {
+        document.location.replace("error.html?error=state");
+      } else {
+        var date = new Date();
+        date.setTime(date.getTime() + (5*60*1000));// 5 minutes
+        var expires = "; expires=" + date.toUTCString();
+        if (query != null) {
+          document.cookie = "token=" + (query || "") + expires + "; path=/";
+        }
+        else if (token_cookie == null) {
+          document.location.replace("error.html?error=no_token");
+        }
+        document.location.replace('success.html');
+      }
+    }
+  }
+  </script>
   <h1 style="color: #7289da; text-align: center;">Please wait as we redirect you.</h1>
 </body>
 </html>
