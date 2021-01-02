@@ -3,36 +3,10 @@
 <head>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Nunito:wght@300&family=Baloo+Tamma+2&display=swap" rel="stylesheet">
   <link href="files/style.css" rel="stylesheet">
+  <script src="files/script.js"></script>
   <title>Oauth Error | Code Linter</title>
 </head>
-<body onload="getError()">
-  <script>
-  function getError() {
-    document.body.style.visibility='visible';
-    var urlParams = new URLSearchParams(window.location.search);
-    var query = urlParams.get("error");
-    var html = document.getElementById('error_msg')
-    if (query == 'access_denied') {
-      html.innerHTML = "You denied us access to our oauth :("
-    }
-    else if (query == 'no_token') {
-      html.innerHTML = "Something went wrong when fetching your token!";
-    }
-    else if (query == 'state') {
-      html.innerHTML = "We have blocked this request due to a security risk.";
-    }
-    else if (query == null) {
-      html.innerHTML = 'An Unknown Error has Occured!'
-    }
-    else {
-      html.innerHTML = query;
-    }
-  }
-  function acceptCookies() {
-    document.getElementsByClassName('bottom')[0].style.bottom = '5px';
-    document.getElementsByClassName('bottom2')[0].style.bottom = '5px';
-  }
-  </script>
+<body onload="jsLoad(); getError();">
   <h1>Error - Something Went Wrong!</h1>
   <div>
     <h2 id="error_msg"></h2>

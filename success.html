@@ -2,23 +2,10 @@
 <html lang="en">
 <head>
   <link href="files/style.css" rel="stylesheet">
-  <title>Token | Code Linter</title>
+  <script src="files/script.js"></script>
+  <title>nerd</title>
 </head>
-<body onload="getToken()">
-  <script>
-  function getToken() {
-    document.body.style.visibility='visible';
-    var token = getCookie('token')
-    if (token == null) {
-      document.location.replace("error.html?error=no_token");
-    }
-    document.getElementById('token').innerHTML = 'Here\'s your Token: ' + token
-  }
-  function acceptCookies() {
-    document.getElementsByClassName('bottom')[0].style.bottom = '5px';
-    document.getElementsByClassName('bottom2')[0].style.bottom = '5px';
-  }
-  </script>
+<body onload="jsLoad(); getToken();">
   <h1>Error - Something Went Wrong!</h1>
   <div>
     <h2 id="token"></h2>
