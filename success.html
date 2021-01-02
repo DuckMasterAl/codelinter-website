@@ -4,14 +4,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Nunito:wght@300&family=Baloo+Tamma+2&display=swap" rel="stylesheet">
   <link href="files/style.css" rel="stylesheet">
   <script src="files/script.js"></script>
-  <title>nerd</title>
+  <title>Oauth Success | Code Linter</title>
 </head>
 <body onload="jsLoad(); getToken();">
-  <h1>Error - Something Went Wrong!</h1>
+  <h1>Success - Your Token is Below</h1>
   <div>
     <h2 id="token"></h2>
     <a href="new.html">
-      <img src="files/reload.png" alt="Reload Icon"/>
+      <picture>
+        <source type="image/webp" srcset="files/reload.webp">
+        <source type="image/png" srcset="files/reload.png">
+        <img src="files/reload.png" alt="Reload Icon"/>
+      </picture>
     </a>
   </div>
 </body>
