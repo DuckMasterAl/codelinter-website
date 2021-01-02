@@ -113,7 +113,7 @@ function acceptCookies() {
   document.getElementsByClassName('bottom2')[0].style.bottom = '5px';
   document.getElementsByClassName('cookie')[0].style.display = 'none';
   var date = new Date();
-  date.setTime(date.getTime() + 10 * 365 * 24 * 60 * 60); // 1 day
+  date.setFullYear(date.getFullYear() + 10);
   var expires = "; expires=" + date.toUTCString();
   document.cookie = "cookie=1" + expires + "; path=/";
 }
