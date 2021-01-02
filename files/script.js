@@ -100,9 +100,20 @@ function getError() {// Get the error query | Used on oauth error page
 
 function jsLoad() {
   document.body.style.visibility='visible';
+  const cookie = getCookie('cookie');
+  if (cookie == "1") {
+    document.getElementsByClassName('bottom')[0].style.bottom = '5px';
+    document.getElementsByClassName('bottom2')[0].style.bottom = '5px';
+    document.getElementsByClassName('cookie')[0].style.display = 'none';
+  }
 }
 
 function acceptCookies() {
   document.getElementsByClassName('bottom')[0].style.bottom = '5px';
   document.getElementsByClassName('bottom2')[0].style.bottom = '5px';
+  document.getElementsByClassName('cookie')[0].style.display = 'none';
+  var date = new Date();
+  date.setTime(date.getTime() + 10 * 365 * 24 * 60 * 60); // 1 day
+  var expires = "; expires=" + date.toUTCString();
+  document.cookie = "cookie=1" + expires + "; path=/";
 }
