@@ -101,7 +101,7 @@ function getError() {// Get the error query | Used on oauth error page
 function jsLoad() {
   document.body.style.visibility='visible';
   const cookie = getCookie('cookie');
-  if (cookie == "1") {
+  if (cookie == "1" &&  document.getElementsByClassName('bottom')[0] != undefined) {
     document.getElementsByClassName('bottom')[0].style.bottom = '5px';
     document.getElementsByClassName('bottom2')[0].style.bottom = '5px';
     document.getElementsByClassName('cookie')[0].style.display = 'none';
