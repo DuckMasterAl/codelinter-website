@@ -13,7 +13,7 @@ function getCookie(name) {// Gets a cookie :D
 function makestate() {// Used on main oauth page
   const urlParams = new URLSearchParams(window.location.search);
   const token_cookie = getCookie('token');
-  const query = urlParams.get("code")
+  const query = urlParams.get("code");
   const query2 = urlParams.get("error");
   if (query2 != null) {
     document.location.replace("error.html?error=" + query2);
