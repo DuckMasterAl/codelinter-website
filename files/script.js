@@ -99,9 +99,11 @@ function getError() {// Get the error query | Used on oauth error page
 }
 
 function jsLoad() {
-  var date = new Date().getFullYear()
-  document.getElementsByClassName('footer_date')[0].innerHTML = date + ' ';
-  document.getElementsByClassName('footer_date')[1].innerHTML = date + ' ';
+  if (document.getElementsByClassName('bottom')[0] != undefined) {
+    var date = new Date().getFullYear()
+    document.getElementsByClassName('footer_date')[0].innerHTML = date + ' ';
+    document.getElementsByClassName('footer_date')[1].innerHTML = date + ' ';
+  }
   document.body.style.visibility='visible';
   const cookie = getCookie('cookie');
   if (cookie == "1" &&  document.getElementsByClassName('bottom')[0] != undefined) {
