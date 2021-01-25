@@ -31,7 +31,7 @@ function makestate() {// Used on main oauth page
     var expires = "; expires=" + date.toUTCString();
     document.cookie = "state=" + (text || "") + expires + "; path=/";
     document.location.replace(
-      "https://github.com/login/oauth/authorize?client_id=eb8d5d1d67f9e842e89b&scope=repo&state=" +
+      "https://github.com/login/oauth/authorize?client_id=783dc01178c06c28994b&scope=repo&state=" +
       text);
   } else {
     const state_param = urlParams.get("state");
@@ -65,7 +65,7 @@ function newToken() {// Gets a new code
   var expires = "; expires=" + date.toUTCString();
   document.cookie = "state=" + (text || "") + expires + "; path=/";
   document.location.replace(
-    "https://github.com/login/oauth/authorize?client_id=eb8d5d1d67f9e842e89b&scope=repo&state=" +
+    "https://github.com/login/oauth/authorize?client_id=783dc01178c06c28994b&scope=repo&state=" +
     text);
 }
 
@@ -99,7 +99,7 @@ function getError() {// Get the error query | Used on oauth error page
 }
 
 function jsLoad() {
-  if (document.getElementsByClassName('bottom')[0] != undefined) {
+  if (document.getElementsByClassName('footer_date')[0] != undefined) {
     var date = new Date().getFullYear()
     document.getElementsByClassName('footer_date')[0].innerHTML = date + ' ';
     document.getElementsByClassName('footer_date')[1].innerHTML = date + ' ';
